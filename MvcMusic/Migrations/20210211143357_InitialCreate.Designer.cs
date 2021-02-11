@@ -9,7 +9,7 @@ using MvcMusic.Data;
 namespace MvcMusic.Migrations
 {
     [DbContext(typeof(MvcMusicContext))]
-    [Migration("20210211140229_InitialCreate")]
+    [Migration("20210211143357_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,9 @@ namespace MvcMusic.Migrations
                     b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("isValid")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

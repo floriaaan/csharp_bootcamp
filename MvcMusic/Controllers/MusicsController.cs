@@ -78,8 +78,10 @@ namespace MvcMusic.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Music music)
+        public async Task<IActionResult> Create(Music music)
         {
+            music.Token = music.Title.ToLower().Replace('\'', '_').Replace(' ', '_') + "-1";
+            // music.isValid = music.isValid.Equals("true");
             if (ModelState.IsValid)
             {
                 _context.Add(music);
@@ -110,12 +112,13 @@ namespace MvcMusic.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Music music)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,isValid,Token")] Music music)
         {
             if (id != music.Id)
             {
                 return NotFound();
             }
+            // music.isValid = music.isValid.Equals("true");
 
             if (ModelState.IsValid)
             {

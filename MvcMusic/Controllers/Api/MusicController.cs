@@ -30,6 +30,20 @@ namespace MvcMusic.Controllers.Api
                 .ToListAsync();
         }
 
+        public async Task<ActionResult<IEnumerable<MusicDTO>>> GetValidMusics()
+        {
+            return await _context.Music.Where(x => x.isValid == true)
+                .Select(x => ItemToDTO(x))
+                .ToListAsync();
+        }
+
+        public async Task<ActionResult<IEnumerable<MusicDTO>>> GetInvalidMusics()
+        {
+            return await _context.Music.Where(x => x.isValid == false)
+                .Select(x => ItemToDTO(x))
+                .ToListAsync();
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<MusicDTO>> GetMusic(int id)
         {
@@ -58,6 +72,11 @@ namespace MvcMusic.Controllers.Api
             }
 
             music.Title = musicDTO.Title;
+            music.ReleaseDate = musicDTO.ReleaseDate;
+            music.Genre = musicDTO.Genre;
+            music.Rating = musicDTO.Rating;
+            music.Price = musicDTO.Price;
+            music.isValid = musicDTO.isValid;
 
             try
             {
@@ -74,7 +93,7 @@ namespace MvcMusic.Controllers.Api
         [HttpPost]
         public async Task<ActionResult<Music>> CreateMusic(Music music)
         {
-
+            music.isValid = false;
             _context.Music.Add(music);
             await _context.SaveChangesAsync();
 

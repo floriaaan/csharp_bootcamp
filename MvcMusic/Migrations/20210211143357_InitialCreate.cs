@@ -18,6 +18,7 @@ namespace MvcMusic.Migrations
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Genre = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     Rating = table.Column<string>(type: "TEXT", maxLength: 5, nullable: false),
+                    isValid = table.Column<bool>(type: "INTEGER", nullable: false),
                     Token = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
