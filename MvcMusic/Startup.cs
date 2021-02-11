@@ -1,16 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+// using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using MvcMusic.Data;
 using Microsoft.EntityFrameworkCore;
+// using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace MvcMusic
 {
@@ -29,6 +27,18 @@ namespace MvcMusic
             services.AddControllersWithViews();
             services.AddDbContext<MvcMusicContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("MvcMusicContext")));
+
+            // var corsBuilder = new CorsPolicyBuilder();
+            // corsBuilder.AllowAnyHeader();
+            // corsBuilder.AllowAnyMethod();
+            // corsBuilder.WithOrigins("http://localhost:5000");
+            // corsBuilder.WithOrigins("https://localhost:5001");
+            // corsBuilder.AllowCredentials();
+
+            // services.AddCors(options =>
+            // {
+            //     options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
