@@ -28,6 +28,7 @@ namespace MvcMusic.Models
                         Genre = "Dance",
                         Price = 7.99M,
                         Rating = "P",
+                        Token = "r.a.m-1"
                     },
 
                     new Music
@@ -37,6 +38,8 @@ namespace MvcMusic.Models
                         Genre = "Comedy",
                         Price = 8.99M,
                         Rating = "Q",
+                        Token = "ghostbusters-1"
+
                     },
 
                     new Music
@@ -46,6 +49,8 @@ namespace MvcMusic.Models
                         Genre = "Comedy",
                         Price = 9.99M,
                         Rating = "R",
+                        Token = "ghostbusters-2"
+
                     },
 
                     new Music
@@ -55,6 +60,7 @@ namespace MvcMusic.Models
                         Genre = "Western",
                         Price = 3.99M,
                         Rating = "R",
+                        Token = "rio-bravo-1"
                     }
                 );
                 context.SaveChanges();

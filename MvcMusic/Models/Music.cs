@@ -29,5 +29,8 @@ namespace MvcMusic.Models
         [StringLength(5)]
         [Required]
         public string Rating { get; set; }
+
+        [Required]
+        public string Token { get; set; }
     }
 }

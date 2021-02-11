@@ -72,16 +72,8 @@ namespace MvcMusic.Controllers.Api
         }
 
         [HttpPost]
-        public async Task<ActionResult<MusicDTO>> CreateMusic(MusicDTO musicDTO)
+        public async Task<ActionResult<Music>> CreateMusic(Music music)
         {
-            var music = new Music
-            {
-                Title = musicDTO.Title,
-                ReleaseDate = musicDTO.ReleaseDate,
-                Price = musicDTO.Price,
-                Genre = musicDTO.Genre,
-                Rating = musicDTO.Rating,
-            };
 
             _context.Music.Add(music);
             await _context.SaveChangesAsync();
