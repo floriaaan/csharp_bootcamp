@@ -1,0 +1,14 @@
+C:\dev\csharp_bootcamp\MusicForm\bin\Debug\MusicForm.exe.config
+C:\dev\csharp_bootcamp\MusicForm\bin\Debug\MusicForm.exe
+C:\dev\csharp_bootcamp\MusicForm\bin\Debug\MusicForm.pdb
+C:\dev\csharp_bootcamp\MusicForm\bin\Debug\Json.Net.dll
+C:\dev\csharp_bootcamp\MusicForm\bin\Debug\Newtonsoft.Json.dll
+C:\dev\csharp_bootcamp\MusicForm\bin\Debug\Newtonsoft.Json.xml
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.csprojAssemblyReference.cache
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.Form1.resources
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.Properties.Resources.resources
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.csproj.GenerateResource.cache
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.csproj.CoreCompileInputs.cache
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.csproj.CopyComplete
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.exe
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.pdb

@@ -30,6 +30,7 @@ namespace MvcMusic.Controllers.Api
                 .ToListAsync();
         }
 
+        [HttpGet("valid")]
         public async Task<ActionResult<IEnumerable<MusicDTO>>> GetValidMusics()
         {
             return await _context.Music.Where(x => x.isValid == true)
@@ -37,6 +38,7 @@ namespace MvcMusic.Controllers.Api
                 .ToListAsync();
         }
 
+        [HttpGet("invalid")]
         public async Task<ActionResult<IEnumerable<MusicDTO>>> GetInvalidMusics()
         {
             return await _context.Music.Where(x => x.isValid == false)
@@ -131,6 +133,7 @@ namespace MvcMusic.Controllers.Api
                 Price = music.Price,
                 Genre = music.Genre,
                 Rating = music.Rating,
+                isValid = music.isValid
             };
     }
 }
