@@ -1,77 +1,65 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 namespace MusicForm
 {
     public partial class Form1 : Form
     {
+
+        List<Music> Cache = new List<Music>();
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             GetData();
         }
 
-        public async void GetData()
+        static async Task<string> GetURI(Uri u)
         {
-            string baseUrl = "https://localhost:5001/api/music/valid";
-            try
+            var response = string.Empty;
+            using (HttpClient client = new HttpClient())
             {
-                using (HttpClient client = new HttpClient())
+                HttpResponseMessage result = await client.GetAsync(u);
+                if (result.IsSuccessStatusCode)
                 {
-                    using (HttpResponseMessage res = await client.GetAsync(baseUrl))
-                    {
-                        using (HttpContent content = res.Content)
-                        {
-                            String json = await content.ReadAsStringAsync();
-                            JArray j = JArray.Parse(json);
-                            List<Music> elements = new List<Music>();
-                            foreach (var elem in j)
-                            {
-
-                                elements.Add(new Music()
-                                {
-                                    Title = (string)elem["title"],
-                                    Genre = (string)elem["genre"],
-                                    Price = (decimal)elem["price"],
-                                    Rating = (string)elem["rating"],
-                                    ReleaseDate = (DateTime)elem["datetime"],
-                                    isValid = (Boolean)elem["isValid"],
-                                });
-
-
-                            }
-                            DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(j.ToString(), (typeof(DataTable)));
-                            dataGridView1.DataSource = dataTable;
-                        }
-                    }
+                    response = await result.Content.ReadAsStringAsync();
                 }
             }
-            catch (Exception exception)
-            {
-                Console.WriteLine("Exception Hit------------");
-                Console.WriteLine(exception);
-            }
+            return response;
+        }
 
+        public void GetData()
+        {
             
+            var t = Task.Run(() => GetURI(new Uri("https://localhost:5001/api/music/invalid")));
+            t.Wait();
+            JArray j = JArray.Parse(t.Result);
+            Cache = new List<Music>();
+            foreach (var elem in j)
+            {
+                Cache.Add(new Music()
+                {
+                    Title = (string)elem["title"],
+                    Genre = (string)elem["genre"],
+                    Price = (decimal)elem["price"],
+                    Rating = (string)elem["rating"],
+                    ReleaseDate = (DateTime)elem["releaseDate"],
+                    isValid = (Boolean)elem["isValid"],
+                });
+            }
+            DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(j.ToString(), (typeof(DataTable)));
+            dataGridView1.DataSource = dataTable;
         }
 
         private void button1_Click(object sender, EventArgs e)

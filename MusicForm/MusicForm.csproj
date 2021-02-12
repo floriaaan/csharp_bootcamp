@@ -59,10 +59,19 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Music.cs" />
+    <Compile Include="MusicControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MusicControls.Designer.cs">
+      <DependentUpon>MusicControls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusicControls.resx">
+      <DependentUpon>MusicControls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

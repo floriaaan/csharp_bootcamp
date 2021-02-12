@@ -12,3 +12,4 @@ C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.csproj.CoreCompileInputs.ca
 C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.csproj.CopyComplete
 C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.exe
 C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.pdb
+C:\dev\csharp_bootcamp\MusicForm\obj\Debug\MusicForm.MusicControls.resources
